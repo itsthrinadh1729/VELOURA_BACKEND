@@ -1,0 +1,52 @@
+=========================================
+   Vastra Backend API Documentation
+=========================================
+
+Base URL: http://localhost:8001
+
+-----------------------------------------
+ 1. Authentication
+-----------------------------------------
+Endpoint: /api/login/
+Method: POST (implied)
+Description: 
+  User authentication endpoint. 
+  Security Note: Protected by Brute Force detection. Will flag and block 
+  further attempts from an IP if there are 5 or more failed login attempts 
+  within a 5-minute (300 seconds) window.
+
+-----------------------------------------
+ 2. Security: Attack Logs
+-----------------------------------------
+Endpoint: /security/logs/  (Note: exact path depends on your urls.py)
+Method: GET
+Description: 
+  Retrieves the latest 100 attack logs recorded by the SecurityMiddleware. 
+  Logs are ordered by the most recent timestamp.
+
+Success Response (200 OK):
+  [
+    {
+      "ip": "192.168.1.15",
+      "type": "SQL Injection",
+      "endpoint": "/api/products/",
+      "time": "2023-10-27T10:23:45.123Z"
+    }
+  ]
+
+-----------------------------------------
+ 3. Security: Attack Statistics
+-----------------------------------------
+Endpoint: /security/stats/ (Note: exact path depends on your urls.py)
+Method: GET
+Description: 
+  Retrieves aggregated statistics of all logged attacks, grouped by the 
+  attack type.
+
+Success Response (200 OK):
+  [
+    {
+      "attack_type": "SQL Injection",
+      "count": 42
+    }
+  ]

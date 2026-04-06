@@ -1,0 +1,11 @@
+API Documentation: Security App
+===============================
+
+Overview:
+Based on the project configuration, the `security` app does not currently expose any REST API endpoints. 
+Instead, it functions as an internal utility/configuration app, specifically providing custom middleware (`security.middleware.SecurityMiddleware`) to process requests and responses globally.
+
+Endpoints:
+No API routes are registered for the `security` app in the main `urls.py` routing configuration.
+
+Note: If the app is later updated to include views and URLs, please provide `security/views.py` and `security/urls.py` to generate a complete API endpoint analysis.
